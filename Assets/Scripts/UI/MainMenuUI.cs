@@ -5,7 +5,7 @@ public class MainMenuUI : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("Fitting Room");
+        SceneManager.LoadScene("HomeScreen");
     }
 
     public void QuitApplication()
