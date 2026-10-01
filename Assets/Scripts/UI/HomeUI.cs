@@ -14,9 +14,9 @@ public class HomeUI : MonoBehaviour
         SceneManager.LoadScene("Dress Collection Room");
     }
 
-    public void GoToStage()
+    public void GoToFittingRoom()
     {
-        SceneManager.LoadScene("Stage");
+        SceneManager.LoadScene("FittingRoom");
     }
         
 }

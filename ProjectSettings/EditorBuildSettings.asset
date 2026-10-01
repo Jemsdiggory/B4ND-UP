@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Dress Collection Room.unity
     guid: c910ea2ed463a0b4495e39dc4c250263
   - enabled: 1
-    path: Assets/Scenes/Stage.unity
+    path: Assets/Scenes/FittingRoom.unity
     guid: 2c216d453fe2aaa4e9594d26028c57af
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
