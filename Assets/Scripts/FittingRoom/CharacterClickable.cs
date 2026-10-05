@@ -8,5 +8,6 @@ public class CharacterClickable : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         FittingRoomPanelManager.Instance.ShowPanelFor(characterId);
+        GameFlowUI.Instance.SetActiveCharacter(characterId);
     }
 }

@@ -10,7 +10,7 @@ public class DraggableClothUI : MonoBehaviour, IBeginDragHandler, IDragHandler, 
     [SerializeField] string category = "Cloth";
     [SerializeField] string characterId = "AOI";
     [SerializeField] GameObject linkedOnBodyObject;
-
+    [SerializeField] OutfitTag itemTags;
     RectTransform rectTransform;
     CanvasGroup canvasGroup;
     Canvas rootCanvas;
@@ -58,7 +58,7 @@ public class DraggableClothUI : MonoBehaviour, IBeginDragHandler, IDragHandler, 
         Collider2D zoneHit = Physics2D.OverlapPoint(worldPos, dropZoneLayer);
         if (zoneHit != null && zoneHit.TryGetComponent(out DropZone zone) && zone.CharacterId == characterId)
         {
-            zone.Equip(linkedOnBodyObject, category);
+            zone.Equip(linkedOnBodyObject, category, itemTags);
         }
 
         rectTransform.SetParent(originalParent, false);

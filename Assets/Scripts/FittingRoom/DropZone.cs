@@ -16,26 +16,38 @@ public class DropZone : MonoBehaviour
 
     public string CharacterId => characterId;
 
+    public static event System.Action OnAnyItemEquipped;
+
     Dictionary<string, GameObject> currentActiveBySlot = new Dictionary<string, GameObject>();
+    Dictionary<string, OutfitTag> currentTagsBySlot = new Dictionary<string, OutfitTag>();
 
     void Awake()
     {
         foreach (var item in defaultItems)
         {
             if (item.defaultObject != null)
-            {
                 currentActiveBySlot[item.category] = item.defaultObject;
-            }
         }
     }
 
-    public void Equip(GameObject onBodyObject, string category)
-
+    public void Equip(GameObject onBodyObject, string category, OutfitTag tags)
     {
+
         if (currentActiveBySlot.TryGetValue(category, out GameObject existing) && existing != null)
             existing.SetActive(false);
 
         onBodyObject.SetActive(true);
         currentActiveBySlot[category] = onBodyObject;
+        currentTagsBySlot[category] = tags;
+
+        OnAnyItemEquipped?.Invoke();
+    }
+
+    public OutfitTag GetAllEquippedTags()
+    {
+        OutfitTag combined = OutfitTag.None;
+        foreach (var kvp in currentTagsBySlot)
+            combined |= kvp.Value;
+        return combined;
     }
 }
