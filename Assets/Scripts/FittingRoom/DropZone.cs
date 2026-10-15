@@ -32,13 +32,14 @@ public class DropZone : MonoBehaviour
 
     public void Equip(GameObject onBodyObject, string category, OutfitTag tags)
     {
-
         if (currentActiveBySlot.TryGetValue(category, out GameObject existing) && existing != null)
             existing.SetActive(false);
 
         onBodyObject.SetActive(true);
         currentActiveBySlot[category] = onBodyObject;
         currentTagsBySlot[category] = tags;
+
+        OutfitSaveData.SaveEquip(characterId, category, onBodyObject.name); // baris baru
 
         OnAnyItemEquipped?.Invoke();
     }
