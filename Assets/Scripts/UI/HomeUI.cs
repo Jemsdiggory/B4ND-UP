@@ -18,5 +18,10 @@ public class HomeUI : MonoBehaviour
     {
         SceneManager.LoadScene("FittingRoom");
     }
+
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
         
 }
